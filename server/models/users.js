@@ -44,18 +44,10 @@ function validateEmail(email) {
           allowNull: false,
         },
         
-        // role: {
-        //   type: DataTypes.STRING,
-        //   allowNull: false,
-        //   validate: {
-        //     isIn: [["user", "driver"]],
-        //   },
-        //   defaultValue: "user", // Default role
-        // },
       },
       {
         tableName: "users",
-        timestamps: true, // to track the time when the user creates or updates their account
+        timestamps: true, 
       }
     );
   

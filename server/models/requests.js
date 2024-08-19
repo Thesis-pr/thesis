@@ -8,10 +8,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
           },
-          address: {
-            type: DataTypes.STRING,
+          longitude: {
+            type: DataTypes.FLOAT,
+            allowNull: false, 
+          },
+          latitude: {
+            type: DataTypes.FLOAT,
             allowNull: false,
           },
+          // The longitude and latitude are gps coordinates
           status: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -30,8 +35,6 @@ module.exports = (sequelize, DataTypes) => {
           },
           truck_type: {
             type: DataTypes.ENUM(
-                "petit utilitaire",
-                "fourgonnette",
                 "fourgon",
                 "grand fourgon",
                 "petit camion",
@@ -54,7 +57,8 @@ module.exports = (sequelize, DataTypes) => {
         telephone: {
           type: DataTypes.STRING,
           allowNull: false
-        }
+        }, 
+       
     },
     {
         tableName: "requests",

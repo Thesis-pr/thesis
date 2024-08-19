@@ -24,8 +24,6 @@ module.exports = (sequelize, DataTypes) => {
           truck: {
             type: DataTypes.ENUM(
               "petit utilitaire",
-              "fourgonnette",
-              "fourgon",
               "grand fourgon",
               "petit camion",
               "grand camion"
@@ -38,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
               isArrayOfImages(value) {
                 if (Array.isArray(value)) {
-                  if (value.length > 4) {
+                  if (value.length >= 3) {
                     throw new Error("You can only upload up to 4 images.");
                   }
                   value.forEach((url) => {
@@ -83,14 +81,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.FLOAT,
             allowNull: false,
           },
-        //   role: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //       isIn: [["user", "driver"]],
-        //     },
-        //     defaultValue: "driver", // Default role
-        //   },
+
+          isActive: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+          }
+        
         },
         {
           tableName: "drivers",
