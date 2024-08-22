@@ -1,9 +1,3 @@
-
-function validateEmail(email) {
-    // Regular expression for validating an email address
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  }
 module.exports = (sequelize, DataTypes) => {
     const Driver = sequelize.define("driver", {
         name: {
@@ -30,14 +24,14 @@ module.exports = (sequelize, DataTypes) => {
             ),
             allowNull: false,
           },
-          images_trunk: {
+          images_truck: {
             type: DataTypes.JSON,
             allowNull: true,
             validate: {
               isArrayOfImages(value) {
                 if (Array.isArray(value)) {
-                  if (value.length >= 3) {
-                    throw new Error("You can only upload up to 4 images.");
+                  if (value.length > 3) {
+                    throw new Error("You can only upload up to 3 images.");
                   }
                   value.forEach((url) => {
                     if (typeof url !== "string") {
@@ -52,18 +46,8 @@ module.exports = (sequelize, DataTypes) => {
           },
           mail: {
             type: DataTypes.STRING(100),
-            unique: true,
-            allowNull: false,
-            validate: {
-              isEmail: {
-                msg: "Invalid email format",
-              },
-              customEmail(value) {
-                if (!validateEmail(value)) {
-                  throw new Error("Invalid email format");
-                }
-              },
-            },
+            allowNull: false
+           
           },
           password: {
             type: DataTypes.STRING,
@@ -73,20 +57,34 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL(10,2),
             allowNull: false
           },
-          longitude: {
-            type: DataTypes.FLOAT,
-            allowNull: false,
-          },
-          latitude: {
-            type: DataTypes.FLOAT,
-            allowNull: false,
-          },
 
           isActive: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: true
-          }
+          },
+         
+          isConfirmed:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false,
+            defaultValue:false
+          },
+          photoOfcin:{
+            type:DataTypes.STRING,
+            allowNull:false,
+          },
+          photoOfdriverLicence:{
+            type:DataTypes.STRING,
+            allowNull:false,
+          },
+          carteGrise:{
+            type:DataTypes.STRING,
+            allowNull:false,
+          },
+          experience:{
+            type:DataTypes.STRING,
+            allowNull:false,
+          },
         
         },
         {
