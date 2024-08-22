@@ -5,6 +5,17 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
           },
+
+        userId: {
+            type: DataTypes.INTEGER,
+            foreignKey: true, 
+            allowNull: false
+        },
+        driverId: {
+            type: DataTypes.INTEGER,
+            foreignKey:true,
+            allowNull:false
+        }
     },
     {
         tableName: "chats",

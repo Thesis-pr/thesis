@@ -58,6 +58,16 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.STRING,
           allowNull: false
         }, 
+        userId: {
+          type: DataTypes.INTEGER,
+          foreignKey: true, 
+          allowNull: false
+      },
+      driverId: {
+          type: DataTypes.INTEGER,
+          foreignKey:true,
+          allowNull:true
+      }
        
     },
     {
