@@ -1,10 +1,3 @@
-
-function validateEmail(email) {
-    // Regular expression for validating an email address
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  }
-  
   module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define(
       "user",
@@ -26,18 +19,8 @@ function validateEmail(email) {
         },
         email: {
           type: DataTypes.STRING(100),
-          unique: true,
-          allowNull: false,
-          validate: {
-            isEmail: {
-              msg: "Invalid email format",
-            },
-            customEmail(value) {
-              if (!validateEmail(value)) {
-                throw new Error("Invalid email format");
-              }
-            },
-          },
+          allowNull: false
+         
         },
         password: {
           type: DataTypes.STRING,

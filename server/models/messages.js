@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
         content: {
             type: DataTypes.TEXT,
             allowNull: false
+        },
+
+        chatId: {
+            type:DataTypes.INTEGER,
+            foreignKey: true,
+            allowNull:false
         }
        
     },
