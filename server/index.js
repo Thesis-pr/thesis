@@ -1,10 +1,9 @@
 const app = require("express")();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const cors = require('cors');
-
-const userRoute = require('../server/route/usersRoute');
-const driveRoute = require('../server/route/driverRoute');
+const cors = require('cors')
+const userRoute = require("./route/usersRoute")
+const driveRoute = require("./route/driverRoute")
 
 app.use(cors());
 app.use('/users', userRoute);
@@ -15,7 +14,6 @@ io.on('connection', (socket) => {
 
   socket.on('user_connected', (data) => {
     console.log(`User connected with ID: ${data.userId}`);
-    // You can add additional logic here if needed
   });
 
   socket.on('disconnect', () => {
@@ -24,7 +22,6 @@ io.on('connection', (socket) => {
 
   socket.on('send_message', (data) => {
     console.log('Received message:', data);
-    // Broadcast the message to all connected clients except the sender
     socket.broadcast.emit('received-message', {
       message: data.message,
       senderId: data.senderId
@@ -32,7 +29,13 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = 3000;
-http.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+const PORT = 3000
+
+
+app.get("/", (req, res) => {
+  res.send("Hello from the server!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening at http://localhost:${PORT}`);
 });
