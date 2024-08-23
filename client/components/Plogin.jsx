@@ -21,39 +21,43 @@ export default function Plogin() {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.section}>
-        <Icon name="lock" size={20} color="#000" />
+      <TouchableOpacity style={styles.section}>
+        <Icon name="lock" size={20} color="#0078FA" />
         <Text style={styles.sectionText}>Avec H-transport</Text>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.section}>
-        <Icon name="question-circle" size={20} color="#000" />
+      <TouchableOpacity style={styles.section}>
+        <Icon name="question-circle" size={20} color="#0078FA" />
         <Text style={styles.sectionText}>Centre d'aide</Text>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.section}>
-        <Icon name="shield" size={20} color="#000" />
+      <TouchableOpacity style={styles.section}>
+        <Icon name="shield" size={20} color="#0078FA" />
         <Text style={styles.sectionText}>confidence et securité</Text>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.section}>
-        <Icon name="umbrella" size={20} color="#000" />
+      <TouchableOpacity style={styles.section}>
+        <Icon name="umbrella" size={20} color="#0078FA" />
         <Text style={styles.sectionText}>Assurance</Text>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.section}>
-        <Icon name="percent" size={20} color="#000" />
+      <TouchableOpacity style={styles.section}>
+        <Icon name="percent" size={20} color="#0078FA" />
         <Text style={styles.sectionText}>conditions generales</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
     backgroundColor: '#fff',
+    marginTop: 50 ,
   },
   title: {
     fontSize: 24,
@@ -66,16 +70,22 @@ const styles = StyleSheet.create({
     color: '#555',
   },
   button: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#0078FA',
     paddingVertical: 15,
-    borderRadius: 5,
+    borderRadius: 12,
     alignItems: 'center',
     marginBottom: 20,
+    width:320,
+    height:60,
+    // top:,
+
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: 'bold',
+    
+    
   },
   loginSection: {
     flexDirection: 'row',

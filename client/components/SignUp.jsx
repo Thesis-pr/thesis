@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Créer un nouveau compte</Text>
-      <Text style={styles.subHeader}>Créez un compte pour explorer tous les emplois disponibles.</Text>
+      <Text style={styles.subHeader}>Créez un compte pour utiliser notre services.</Text>
 
       <TextInput style={styles.input} placeholder="E-mail" keyboardType="email-address" />
       <TextInput style={styles.input} placeholder="Numero de telephone" keyboardType="phone-pad" />
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   input: {
-    width: 230,
+    width: 296,
     height: 50,
     borderColor: '#0063f7',
     borderWidth: 1,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    width: 100,
+    width: 210,
     height: 50,
     backgroundColor: '#0063f7',
     borderRadius: 8,
