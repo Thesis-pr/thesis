@@ -8,6 +8,16 @@ module.exports = (sequelize, DataTypes) => {
                 max: 5.00, 
                 isDecimal: true,             
               },
+              userId: {
+                type: DataTypes.INTEGER,
+                foreignKey: true, 
+                allowNull: false
+            },
+            driverId: {
+                type: DataTypes.INTEGER,
+                foreignKey:true,
+                allowNull:false
+            }
     },
 }, 
 {
