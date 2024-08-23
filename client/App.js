@@ -1,19 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from "./components/Login.jsx"
-import SignUp from "./components/SignUp.jsx"
-import Plogin from "./components/Plogin.jsx"
-import Pconnection from './components/Pconnection.jsx';
+// import { StatusBar } from "expo-status-bar";
+// import { StyleSheet, Text, View } from "react-native";
+// import Header from "./components/Header";
+// import Demande from "./components/Demande";
+// import Footer from "./components/Footer";
+// import Depart from "./components/Depart";
 
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       {/* <Header /> */}
+//       {/* <Demande /> */}
+//       <Depart />
+//       {/* <Footer /> */}
+//       {/* <HouseLevel/> */}
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     flexDirection: "colomn",
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "flex-start",
+//   },
+// });
+
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import Header from "./components/Header";
+import Demande from "./components/Demande";
+import Footer from "./components/Footer";
+import Depart from "./components/Depart";
+import DemenageurNum from "./components/DemenageurNum";
+import HouseLevel from "./components/HouseLevel";
+import HowMuchLevel from "./components/HowMuchLevel";
+import HeaderUser from "./components/HeaderUser";
+import PrestataireHeader from "./components/PrestataireHeader";
+import PrestatairePage from "./components/PrestatairePage";
+// import UserPage from "./components/userPage";
 export default function App() {
   return (
     <View style={styles.container}>
-    {/* <Login /> */}
-         {/* <SignUp /> */}
-    {/* <Plogin  /> */}
-    <Pconnection />
-      {/* <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" /> */}
+      {/* <Header /> */}
+      {/* <Demande /> */}
+      {/* <Depart /> */}
+      {/* <Footer /> */}
+      {/* <DemenageurNum /> */}
+      {/* <HouseLevel /> */}
+      {/* <HowMuchLevel /> */}
+      {/* <HeaderUser /> */}
+      {/* <PrestataireHeader /> */}
+      <PrestatairePage />
+      {/* <UserPage /> */}
     </View>
   );
 }
@@ -21,8 +61,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
 });
