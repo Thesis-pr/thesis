@@ -72,8 +72,16 @@ export default function Depart() {
           </TouchableOpacity>
         </View>
       </View>
+      <View style={styles.fixButton}>
+        <ButtonNext
+          style={styles.button}
+          targetScreen={"HouseLevel"}
+          buttonColor="#0078FA"
+          buttonText="Suivant"
+          textColor="white"
+        />
+      </View>
 
-      <ButtonNext style={styles.buttonNext} />
       <Footer />
     </View>
   );
@@ -81,11 +89,12 @@ export default function Depart() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: "sapce-between",
     alignItems: "center",
     justifyContent: "center",
-    gap: 80,
+    flex: 1,
+    gap: 55,
+    marginTop: 10,
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -118,8 +127,11 @@ const styles = StyleSheet.create({
   },
   containerCheckBox: {
     marginBottom: 30,
+    marginTop: 60,
   },
-  buttonNext: {
-    // marginTop: 70,
+  fixButton: {
+    flexDirection: "row",
+    gap: 40,
+    marginLeft: 160,
   },
 });

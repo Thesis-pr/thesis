@@ -32,7 +32,7 @@ export default function HouseLevel() {
         <View style={styles.checkboxContainer}>
           <TouchableOpacity
             style={styles.checkboxWrapper}
-            onPress={() => handleCheckboxChange("Rez-de-chaussée")}
+            onPress={() => handleCheckboxChange("rez-de-chaussée")}
           >
             <View
               style={[
@@ -115,7 +115,22 @@ export default function HouseLevel() {
         </View>
       </View>
 
-      <ButtonNext style={styles.buttonNext} />
+      <View style={styles.fixButton}>
+        <ButtonNext
+          style={styles.button}
+          targetScreen={"Depart"}
+          buttonColor="white"
+          buttonText="Precedent"
+          textColor="#0078FA"
+        />
+        <ButtonNext
+          style={styles.button}
+          targetScreen={"HowMuchLevel"}
+          buttonColor="#0078FA"
+          buttonText="Suivant"
+          textColor="white"
+        />
+      </View>
       <Footer />
     </View>
   );
@@ -127,12 +142,12 @@ const styles = StyleSheet.create({
     flexDirection: "sapce-between",
     alignItems: "center",
     justifyContent: "center",
-    gap: 80,
+    gap: 10,
   },
   checkboxContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 10,
   },
   checkboxWrapper: {
     flexDirection: "row",
@@ -159,10 +174,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   containerCheckBox: {
-    flex: 1,
-    marginBottom: 150,
+    marginBottom: 100,
   },
-  buttonNext: {
-    // marginTop: 70,
+  fixButton: {
+    flexDirection: "row",
+    gap: 40,
+    marginLeft: 20,
+    marginBottom: 60,
   },
 });

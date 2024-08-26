@@ -36,7 +36,22 @@ const DemenageurNum = () => {
           <FontAwesome5 name="plus-circle" size={40} color="#0078FA" />
         </Pressable>
       </View>
-      <ButtonNext />
+      <View style={styles.fixButton}>
+        <ButtonNext
+          style={styles.button}
+          targetScreen={"HowMuchLevel"}
+          buttonColor="white"
+          buttonText="Precedent"
+          textColor="#0078FA"
+        />
+        <ButtonNext
+          style={styles.button}
+          targetScreen={"Demande"}
+          buttonColor="#0078FA"
+          buttonText="Suivant"
+          textColor="white"
+        />
+      </View>
       <Footer />
     </View>
   );
@@ -66,7 +81,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 20,
-    
+  },
+  fixButton: {
+    flexDirection: "row",
+    gap: 40,
+    justifyContent: "center",
   },
 });
 

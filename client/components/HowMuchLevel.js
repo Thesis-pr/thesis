@@ -22,29 +22,51 @@ const HowMuchLevel = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Combien de niveaux avez vous ?</Text>
+      <View style={styles.innerContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Combien de niveaux avez vous ?</Text>
+        </View>
+        <View style={styles.containerIcon}>
+          <Pressable onPress={removeNum}>
+            <AntDesign name="minuscircle" size={40} color="#0078FA" />
+          </Pressable>
+          <Text style={styles.countText}>{count}</Text>
+          <Pressable onPress={addNum}>
+            <FontAwesome5 name="plus-circle" size={40} color="#0078FA" />
+          </Pressable>
+        </View>
+        <View style={styles.fixButton}>
+          <ButtonNext
+            style={styles.button}
+            targetScreen={"HouseLevel"}
+            buttonColor="white"
+            buttonText="Precedent"
+            textColor="#0078FA"
+          />
+          <ButtonNext
+            style={styles.button}
+            targetScreen={"DemenageurNum"}
+            buttonColor="#0078FA"
+            buttonText="Suivant"
+            textColor="white"
+          />
+        </View>
+        <Footer />
       </View>
-      <View style={styles.containerIcon}>
-        <Pressable onPress={removeNum}>
-          <AntDesign name="minuscircle" size={40} color="#0078FA" />
-        </Pressable>
-        <Text style={styles.countText}>{count}</Text>
-        <Pressable onPress={addNum}>
-          <FontAwesome5 name="plus-circle" size={40} color="#0078FA" />
-        </Pressable>
-      </View>
-      <ButtonNext />
-      <Footer />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "space-between",
+    justifyContent: "center",
     gap: 85,
+  },
+  innerContainer: {
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    alignSelf: "center",
   },
   titleContainer: {
     alignItems: "center",
@@ -64,6 +86,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 20,
+  },
+  fixButton: {
+    flexDirection: "row",
+    gap: 40,
+    alignSelf: "center",
+    marginTop: 200,
+    marginBottom: 80,
   },
 });
 
