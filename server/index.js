@@ -6,7 +6,6 @@ const driveRoute = require("./route/driverRoute");
 
 const PORT = 3000;
 const app = express();
-const { driverRouter } = require("./router/driverRouter");
 
 app.use(express.json());
 app.use(cors());

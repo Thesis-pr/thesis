@@ -6,7 +6,7 @@ import Depart from "./Depart";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function NavigationComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Demande">

@@ -1,49 +1,59 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 
-export default function ButtonNext() {
-  const [activeTab, setActiveTab] = useState("Suivante");
+export default function ButtonNext({
+  targetScreen,
+  buttonText,
+  buttonColor,
+  textColor,
+}) {
   return (
     <View
       style={{
         flexDirection: "row",
         alignSelf: "center",
-        gap: 90,
+        gap: 60,
       }}
     >
       <HeaderButton
-        text="Précédente"
-        btnColor="#0078FA"
-        textColor="white"
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        text={buttonText}
+        btnColor={buttonColor}
+        textColor={textColor}
+        targetScreen={targetScreen}
       />
-      <HeaderButton
-        text="Suivante"
+      {/* <HeaderButton
+        text="Suivant"
         btnColor="white"
         textColor="#0078FA"
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-      />
+      /> */}
     </View>
   );
 }
 
 const HeaderButton = (props) => {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate(props.targetScreen);
+
+    // props.setActiveTab(props.text);
+  };
   return (
     <TouchableOpacity
       style={{
-        backgroundColor: props.activeTab === props.text ? "#0078FA" : "white",
+        backgroundColor: props.btnColor,
         paddingVertical: 6,
         paddingHorizontal: 16,
         borderRadius: 30,
         marginTop: 90,
       }}
-      onPress={() => props.setActiveTab(props.text)}
+      onPress={handlePress}
     >
       <Text
         style={{
-          color: props.activeTab === props.text ? "white" : "#0078FA",
+          color: props.textColor,
           fontSize: 15,
           fontWeight: 900,
         }}

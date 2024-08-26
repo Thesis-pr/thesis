@@ -2,7 +2,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import React from "react";
 
-const PrestatairePage = () => {
+const PrestataireHeader = () => {
   return (
     <View style={styles.container}>
       <View style={styles.backgroundImage}>
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PrestatairePage;
+export default PrestataireHeader;

@@ -1,8 +1,16 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import ButtonNext from "./ButtonNext";
 import Header from "./Header";
 import Footer from "./Footer";
+import DemenageurNum from "./DemenageurNum";
 
 export default function Demande() {
   const handleImagePress = () => {
@@ -10,63 +18,80 @@ export default function Demande() {
   };
 
   return (
-    <View style={styles.demandeContainer}>
+    <ScrollView style={styles.demandeContainer}>
       <Header />
-      <View>
-        <Text style={styles.textTitle}>
-          Quelle taille de camion pour déménager ?
-        </Text>
-      </View>
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/1.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Petit utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 4 m3</Text>
+      <View style={styles.innerContainer}>
+        <View>
+          <Text style={styles.textTitle}>
+            Quelle taille de camion pour déménager ?
+          </Text>
         </View>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/2.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Petit utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 9 m3</Text>
+        <View style={styles.container}>
+          <View style={styles.imageContainer}>
+            <TouchableOpacity onPress={handleImagePress}>
+              <Image source={require("../assets/1.jpg")} style={styles.image} />
+            </TouchableOpacity>
+            <Text style={styles.text}>Petit utilitaire</Text>
+            <Text style={styles.text}>Jusqu'à 4 m3</Text>
+          </View>
+          <View style={styles.imageContainer}>
+            <TouchableOpacity onPress={handleImagePress}>
+              <Image source={require("../assets/2.jpg")} style={styles.image} />
+            </TouchableOpacity>
+            <Text style={styles.text}>Petit utilitaire</Text>
+            <Text style={styles.text}>Jusqu'à 9 m3</Text>
+          </View>
         </View>
-      </View>
 
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/3.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Moyen utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 15 m3</Text>
+        <View style={styles.container}>
+          <View style={styles.imageContainer}>
+            <TouchableOpacity onPress={handleImagePress}>
+              <Image source={require("../assets/3.jpg")} style={styles.image} />
+            </TouchableOpacity>
+            <Text style={styles.text}>Moyen utilitaire</Text>
+            <Text style={styles.text}>Jusqu'à 15 m3</Text>
+          </View>
+          <View style={styles.imageContainer}>
+            <TouchableOpacity onPress={handleImagePress}>
+              <Image source={require("../assets/4.jpg")} style={styles.image} />
+            </TouchableOpacity>
+            <Text style={styles.text}>Grand utilitaire</Text>
+            <Text style={styles.text}>Jusqu'à 20 m3</Text>
+          </View>
         </View>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/4.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Grand utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 20 m3</Text>
+        <View style={styles.fixButton}>
+          <ButtonNext
+            style={styles.button}
+            targetScreen={"HowMuchLevel"}
+            buttonColor="white"
+            buttonText="Precedent"
+            textColor="#0078FA"
+          />
+          <ButtonNext
+            style={styles.button}
+            targetScreen={"Demande"}
+            buttonColor="#0078FA"
+            buttonText="Suivant"
+            textColor="white"
+          />
         </View>
+        <Footer style={styles.footer} />
       </View>
-
-      <ButtonNext style={styles.button} />
-      <Footer style={styles.footer} />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   demandeContainer: {
-    // marginBottom: 100,
-    flex: 1,
-    flexDirection: "sapce-between",
-    gap: 14,
+    // flexDirection: "row",
+  },
+  imageContainer: {
+    flexDirection: "row",
+    gap: 20,
   },
   container: {
     flexDirection: "row",
-    marginTop: 30,
+    marginTop: 40,
     justifyContent: "space-around",
   },
   imageContainer: {
@@ -89,5 +114,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 20,
     marginLeft: 50,
+    fontSize: 18,
+  },
+  fixButton: {
+    flexDirection: "row",
+    gap: 60,
+    marginBottom: 50,
+    marginLeft: 60,
   },
 });
