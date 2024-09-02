@@ -1,15 +1,17 @@
-import React, { useState } from "react";
 import {
   View,
   Text,
   Image,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
   FlatList,
 } from "react-native";
+import React, { useState } from "react";
 import ButtonNext from "./ButtonNext";
 import Header from "./Header";
 import Footer from "./Footer";
+import DemenageurNum from "./DemenageurNum";
 
 export default function Demande({ route }) {
   const [truckTypeSaved, setTruckTypeSaved] = useState({});
@@ -28,7 +30,7 @@ export default function Demande({ route }) {
     let obj = route?.params;
     obj.truck_type = label.toLowerCase();
     setTruckTypeSaved(obj);
-    setSelectedLabel(label); 
+    setSelectedLabel(label);
   };
 
   const renderItem = ({ item }) => (

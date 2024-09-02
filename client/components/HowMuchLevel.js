@@ -91,6 +91,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
   },
+  innerContainer: {
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
   titleContainer: {
     alignItems: "center",
     marginVertical: 20,

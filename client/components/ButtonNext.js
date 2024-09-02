@@ -24,7 +24,6 @@ export default function ButtonNext({
         targetScreen={targetScreen}
         params={params}
       />
-
     </View>
   );
 }
