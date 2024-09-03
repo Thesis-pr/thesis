@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -6,18 +6,40 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import ButtonNext from "./ButtonNext";
 
-const HowMuchLevel = () => {
+const HowMuchLevel = ({ route }) => {
   const [count, setCount] = useState(0);
 
+  const [savedLevel, setSavedLevel] = useState({});
+  const { homeCategory } = route?.params ?? {};
+
+  console.log("homeCategory", route.params);
   const addNum = () => {
-    if (count < 4) {
-      setCount(count + 1);
-    }
+    setCount((prev) => {
+      const newCount = prev + 1;
+      if (newCount <= 4) {
+        let obj = { ...route.params, floors: newCount };
+        setSavedLevel(obj);
+        return newCount;
+      }
+      return prev;
+    });
   };
 
   const removeNum = () => {
-    setCount(count > 0 ? count - 1 : 0);
+    setCount((prev) => {
+      const newCount = prev > 0 ? prev - 1 : 0;
+
+      let obj = { ...route.params, floors: newCount };
+      setSavedLevel(obj);
+      return newCount;
+    });
   };
+
+  useEffect(() => {
+    let obj = { ...route.params, floors: count };
+    setSavedLevel(obj);
+    console.log("level updated", count);
+  }, [count, route.params]);
 
   return (
     <View style={styles.container}>
@@ -45,6 +67,7 @@ const HowMuchLevel = () => {
           />
           <ButtonNext
             style={styles.button}
+            params={savedLevel}
             targetScreen={"DemenageurNum"}
             buttonColor="#0078FA"
             buttonText="Suivant"
@@ -60,7 +83,13 @@ const HowMuchLevel = () => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    gap: 85,
+    gap: 150,
+  },
+  innerContainer: {
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    alignSelf: "center",
   },
   innerContainer: {
     flexDirection: "column",
@@ -91,8 +120,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 40,
     alignSelf: "center",
-    marginTop: 200,
-    marginBottom: 80,
+    marginTop: 170,
+    marginBottom: 40,
   },
 });
 

@@ -7,6 +7,7 @@ export default function ButtonNext({
   buttonText,
   buttonColor,
   textColor,
+  params = {},
 }) {
   return (
     <View
@@ -21,14 +22,8 @@ export default function ButtonNext({
         btnColor={buttonColor}
         textColor={textColor}
         targetScreen={targetScreen}
+        params={params}
       />
-      {/* <HeaderButton
-        text="Suivant"
-        btnColor="white"
-        textColor="#0078FA"
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      /> */}
     </View>
   );
 }
@@ -36,9 +31,7 @@ export default function ButtonNext({
 const HeaderButton = (props) => {
   const navigation = useNavigation();
   const handlePress = () => {
-    navigation.navigate(props.targetScreen);
-
-    // props.setActiveTab(props.text);
+    navigation.navigate(props.targetScreen, props.params);
   };
   return (
     <TouchableOpacity

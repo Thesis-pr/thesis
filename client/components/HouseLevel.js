@@ -3,11 +3,20 @@ import React, { useState } from "react";
 import ButtonNext from "./ButtonNext";
 import Header from "./Header";
 import Footer from "./Footer";
-export default function HouseLevel() {
+export default function HouseLevel({ route }) {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [floor, setFloor] = useState("");
+  const [savedHomeType, setSavedHomeType] = useState({});
+  const { homeCategory } = route?.params ?? {};
+  console.log("homeCategory", homeCategory);
 
   const handleCheckboxChange = (option) => {
+    console.log(route?.params);
     setSelectedOption(option === selectedOption ? null : option);
+    setFloor(option);
+    let obj = route?.params;
+    obj.floor_number = option;
+    setSavedHomeType(obj);
   };
 
   return (
@@ -126,6 +135,7 @@ export default function HouseLevel() {
         <ButtonNext
           style={styles.button}
           targetScreen={"HowMuchLevel"}
+          params={savedHomeType}
           buttonColor="#0078FA"
           buttonText="Suivant"
           textColor="white"
@@ -138,8 +148,7 @@ export default function HouseLevel() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: "sapce-between",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     gap: 10,
@@ -152,6 +161,7 @@ const styles = StyleSheet.create({
   checkboxWrapper: {
     flexDirection: "row",
     alignItems: "center",
+    marginTop: 20,
   },
   checkbox: {
     width: 20,
@@ -171,15 +181,16 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: "bold",
     fontSize: 18,
-    marginBottom: 20,
   },
   containerCheckBox: {
-    marginBottom: 100,
+    marginBottom: 2,
   },
+
   fixButton: {
     flexDirection: "row",
     gap: 40,
     marginLeft: 20,
-    marginBottom: 60,
+    marginBottom: 20,
+    marginTop: 30,
   },
 });

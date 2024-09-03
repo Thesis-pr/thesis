@@ -4,12 +4,12 @@ import React from "react";
 
 const PrestataireHeader = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.backgroundImage}>
-        <Image style={styles.image} source={require("../assets/7.png")} />
+    <View style={styles.containerHeader}>
+      <View style={styles.backgroundImageHeader}>
+        <Image style={styles.imageHeader} source={require("../assets/7.png")} />
       </View>
       <View>
-        <View style={styles.details}>
+        <View style={styles.detailsHeader}>
           <Text style={{ fontWeight: "bold" }}>Ahmed Ghizouini</Text>
           <AntDesign name="downcircleo" size={24} color="black" />
           <Text style={{ fontWeight: "bold" }}>90DT/h</Text>
@@ -20,7 +20,7 @@ const PrestataireHeader = () => {
   );
 };
 const styles = StyleSheet.create({
-  container: {
+  containerHeader: {
     flexDirection: "row",
     alignSelf: "flex-start",
     justifyContent: "center",
@@ -29,19 +29,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     gap: 10,
   },
-  backgroundImage: {
+  backgroundImageHeader: {
     paddingHorizontal: 7,
     paddingVertical: 7,
     backgroundColor: "#F1D3CE",
     borderRadius: 60,
   },
-  image: {
+  imageHeader: {
     width: 80,
     height: 80,
     borderRadius: 50,
     alignSelf: "center",
   },
-  details: {
+  detailsHeader: {
     flexDirection: "row",
     gap: 20,
   },
