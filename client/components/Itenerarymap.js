@@ -67,7 +67,7 @@ const Itenerarymap = ({ route }) => {
           )}
         </MapView>
       )}
-      {currentLocation && (
+      {/* {currentLocation && (
         <TouchableOpacity
           style={styles.googleMapsButton}
           onPress={() =>
@@ -79,7 +79,7 @@ const Itenerarymap = ({ route }) => {
         >
           <Text style={styles.buttonText}>Open in Google Maps</Text>
         </TouchableOpacity>
-      )}
+      )} */}
     </View>
   );
 };
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 15,
     paddingHorizontal: 20,
-    marginBottom: 30, 
+    marginBottom: 30,
     alignItems: "center",
     justifyContent: "center",
     color: "white",

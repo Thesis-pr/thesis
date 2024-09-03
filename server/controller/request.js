@@ -28,10 +28,9 @@ const updateStatus = async (req, res) => {
       return res.status(404).json({ message: "Request not found" });
     }
 
-    // Update the specified attribute
+  
     request["status"] = "accepted";
-
-    // Save the changes to the database
+e
     await request.save();
 
     return res.status(200).json({
