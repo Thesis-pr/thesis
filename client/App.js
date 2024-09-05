@@ -1,31 +1,95 @@
-import react from 'react'
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
-import Datetime from './components/Datetime';
-import HouseLevel from './components/HouseLevel';
-import HowMuchLevel from './components/HowMuchLevel.js'
-import ChatScreen from './Screen/ChatScreen.js'
-import Imagetest from './components/Imagetest.js';
-import Telephone from './components/Telephone.js';
+import Login from "./components/Login.jsx"
+import SignUp from "./components/SignUp.jsx"
+import Plogin from "./components/Plogin.jsx"
+import Pconnection from './components/Pconnection.jsx';
+import Commencer from './components/Commencer.jsx';
+import RegisterPrestitaire from './components/RegisterPrestitaire.jsx';
+// import RegisterPrestitaire2 from './components/RegisterPrestitaire2.jsx';
+import About1 from'./components/About1.jsx'
+import About2 from'./components/About2.jsx'
+import About3 from'./components/About3.jsx'
+import About4 from'./components/About4.jsx'
+import About5 from'./components/About5.jsx'
+import Demande from './components/Demande.js';
+import ButtonNext from './components/ButtonNext.jsx';
+import LoginPrestataire from './components/LoginPrestataire.jsx'
+
 import PaymentScreen from './Screen/PaymentScreen.js'
-import PaymentSuccess from './Screen/PaymentSuccess.js'
-import PaymentFailure from './Screen/PaymentFailure.js';
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { NavigationContainer } from "@react-navigation/native"
+import HeaderUser from './components/HeaderUser.js';
+import PaymentSuccess from './Screen/PaymentScreen.js'
 
-const Stack = createNativeStackNavigator()
 
-function App() {
+
+const Stack = createNativeStackNavigator();
+
+
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="PaymentScreen">
-        <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
-        <Stack.Screen name="success" component={PaymentSuccess} />
-        <Stack.Screen name="fail" component={PaymentFailure} />
+        {/* <Stack.Screen
+          name="About1"
+          component={About1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="About2"
+          component={About2}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="About3"
+          component={About3}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="About4"
+          component={About4}
+          options={{ headerShown: false }}
+        /> 
+        <Stack.Screen
+          name="About5"
+          component={About5}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Pconnection"
+          component={Pconnection}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Commencer"
+          component={Commencer}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="RegisterPrestitaire"
+          component={RegisterPrestitaire}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{ headerShown: false }}
+        /> 
+         */}
+         <Stack.Screen
+          name="PaymentScreen"
+          component={PaymentScreen}
+          options={{ headerShown: false }}
+        />
+         
+         <Stack.Screen
+          name="success"
+          component={PaymentSuccess}
+          options={{ headerShown: false }}
+        />
+        
+
+
       </Stack.Navigator>
     </NavigationContainer>
-   
-  );
-}
-
-export default App;
-
+    )}

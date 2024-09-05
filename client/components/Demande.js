@@ -1,93 +1,148 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  FlatList,
+} from "react-native";
+import React, { useState } from "react";
 import ButtonNext from "./ButtonNext";
 import Header from "./Header";
 import Footer from "./Footer";
+import DemenageurNum from "./DemenageurNum";
 
-export default function Demande() {
-  const handleImagePress = () => {
-    alert("Image pressed!");
+export default function Demande({ route }) {
+  const [truckTypeSaved, setTruckTypeSaved] = useState({});
+  const [selectedLabel, setSelectedLabel] = useState(null);
+
+  const { truckType } = route?.params ?? {};
+
+  const truckImages = [
+    { id: "1", source: require("../assets/1.jpg"), label: "Fourgon" },
+    { id: "2", source: require("../assets/2.jpg"), label: "Grand Fourgon" },
+    { id: "3", source: require("../assets/3.jpg"), label: "Petit Camion" },
+    { id: "4", source: require("../assets/4.jpg"), label: "Grand Camion" },
+  ];
+
+  const handleImagePress = (label) => {
+    let obj = route?.params;
+    obj.truck_type = label.toLowerCase();
+    setTruckTypeSaved(obj);
+    setSelectedLabel(label);
   };
 
+  const renderItem = ({ item }) => (
+    <View style={styles.imageContainer}>
+      <TouchableOpacity onPress={() => handleImagePress(item.label)}>
+        <Image source={item.source} style={styles.image} />
+        {selectedLabel === item.label && (
+          <View style={styles.checkmarkContainer}>
+            <Text style={styles.checkmark}>✔</Text>
+          </View>
+        )}
+        <Text style={styles.text}>{item.label}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+
   return (
-    <View style={styles.demandeContainer}>
+    <View style={styles.container}>
       <Header />
-      <View>
+      <View style={styles.innerContainer}>
         <Text style={styles.textTitle}>
           Quelle taille de camion pour déménager ?
         </Text>
+        <FlatList
+          data={truckImages}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+          contentContainerStyle={styles.flatListContainer}
+        />
+        <View style={styles.fixButton}>
+          <ButtonNext
+            style={styles.button}
+            targetScreen={"HowMuchLevel"}
+            buttonColor="white"
+            buttonText="Précédent"
+            textColor="#0078FA"
+          />
+          <ButtonNext
+            style={styles.button}
+            targetScreen={"Telephone"}
+            params={truckTypeSaved}
+            buttonColor="#0078FA"
+            buttonText="Suivant"
+            textColor="white"
+          />
+        </View>
+        <Footer style={styles.footer} />
       </View>
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/1.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Petit utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 4 m3</Text>
-        </View>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/2.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Petit utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 9 m3</Text>
-        </View>
-      </View>
-
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/3.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Moyen utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 15 m3</Text>
-        </View>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/4.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Grand utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 20 m3</Text>
-        </View>
-      </View>
-
-      <ButtonNext style={styles.button} />
-      <Footer style={styles.footer} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  demandeContainer: {
-    // marginBottom: 100,
-    flex: 1,
-    flexDirection: "sapce-between",
-    gap: 14,
-  },
   container: {
-    flexDirection: "row",
+    flex: 1,
+  },
+  innerContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+  },
+  textTitle: {
+    fontWeight: "bold",
+    fontSize: 18,
+    marginVertical: 20,
     marginTop: 30,
-    justifyContent: "space-around",
+  },
+  flatListContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    marginTop: 20,
   },
   imageContainer: {
     alignItems: "center",
-    width: 160,
-    marginTop: 10,
+    margin: 10,
+    position: "relative",
   },
   image: {
-    width: 150,
-    height: 80,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginHorizontal: 20,
   },
   text: {
     marginTop: 5,
     textAlign: "center",
   },
-  button: {
-    marginTop: 50,
+  fixButton: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 60,
+    marginTop: 30,
   },
-  textTitle: {
-    fontWeight: "bold",
+  button: {
     marginTop: 20,
-    marginLeft: 50,
+  },
+  checkmarkContainer: {
+    position: "absolute",
+    top: -10,
+    right: 10,
+    borderRadius: 10,
+    padding: 5,
+  },
+  checkmark: {
+    color: "#0078FA",
+    fontSize: 40,
+    fontWeight: "bold",
+  },
+  footer: {
+    marginTop: 40,
   },
 });

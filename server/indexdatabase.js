@@ -6,6 +6,10 @@ const sequelize = new Sequelize(config.database, config.user, config.password, {
   dialect: "mysql",
 });
 
+
+
+
+
 const User = require("./models/users.js")(sequelize, DataTypes);
 const Driver = require("./models/drivers.js")(sequelize, DataTypes);
 const Request = require("./models/requests.js")(sequelize, DataTypes);
@@ -55,7 +59,7 @@ sequelize
   .catch((error) => console.log("unable to connect to the database", error));
 
 sequelize
-  .sync()
+  .sync({ alter: true }) // shady
   .then(() => {
     console.log("database and tables created successfully");
   })

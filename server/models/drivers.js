@@ -2,6 +2,13 @@ module.exports = (sequelize, DataTypes) => {
   const Driver = sequelize.define(
     "driver",
     {
+      driverId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+
       name: {
         type: DataTypes.STRING(50),
         allowNull: false,
@@ -13,9 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       image: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isUrl: true,
-        },
+        
       },
       truck: {
         type: DataTypes.ENUM(
@@ -54,31 +59,37 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      price: {
-        type: DataTypes.DECIMAL(10, 2),
+      tel: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
+      
 
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       isActive: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true,
       },
+
       isConfirmed: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
       photoOfcin: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.TEXT,
+          allowNull: false, 
       },
       photoOfdriverLicence: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.TEXT,
+          allowNull: false, 
       },
       carteGrise: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       experience: {

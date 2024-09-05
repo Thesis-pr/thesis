@@ -61,6 +61,11 @@ const messageRouter = require ("./route/messageRoute.js")
 const paymentRouter = require ("./route/payment.js")
 const requestRouter = require ("./route/request.js")
 const app = express();
+
+
+
+
+
 const server = http.createServer(app);
 const io = socketIo(server)
 require('dotenv').config()
@@ -71,8 +76,9 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY_1,
   api_secret: process.env.CLOUDINARY_API_SECRET_1,
 });
-app.use(express.static('/opt/lampp/htdocs/testproject/'));
-app.use(express.json());
+// app.use(express.static('/opt/lampp/htdocs/testproject/'))
+app.use(express.json({ limit: '100mb' }));
+
 app.use(cors());
 app.use('/users', userRoute)
 app.use('/drivers', driveRoute)
