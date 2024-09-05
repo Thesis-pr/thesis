@@ -27,7 +27,7 @@
 //   const handleAccept = () => {
 //     setIsAccepted(true);
 //     axios
-//       .post("http://192.168.1.46:3000/request/add", route.params)
+//       .post("http://192.168.151.34:3000/request/add", route.params)
 //       .then((res) => {
 //         const reqst = res.data;
 //       })
@@ -275,7 +275,7 @@ export default function RequestDetails({ route }) {
   const handleAccept = () => {
     setIsAccepted(true);
     axios
-      .post(`http://192.168.1.46:3000/request/add`, route.params)
+      .post(`http://192.168.151.34:3000/request/add`, route.params)
       .then((res) => {
         console.log(res.data, "this the post requests");
       })

@@ -49,11 +49,9 @@ Message.belongsTo(Chat, { foreignKey: "chatId", onDelete: "CASCADE" });
 Request.hasMany(Chat, { foreignKey: "requestId", onDelete: "CASCADE" });
 Chat.belongsTo(Request, { foreignKey: "requestId", onDelete: "CASCADE" });
 
-Payment.belongsTo(User, { foreignKey: "userId", onDelete: "CASCADE" });
-User.hasMany(Payment, { foreignKey: "userId", onDelete: "CASCADE" });
+Request.hasOne(Payment, { foreignKey: "requestId", onDelete: "CASCADE"})
+Payment.belongsTo(Request, { foreignKey: "requestId", onDelete: "CASCADE"})
 
-Payment.belongsTo(Driver, { foreignKey: "driverId", onDelete: "CASCADE" });
-Driver.hasMany(Payment, { foreignKey: "driverId", onDelete: "CASCADE" });
 
 sequelize
   .authenticate()
@@ -74,5 +72,9 @@ module.exports = {
   sequelize,
   User,
   Driver,
-  Request,
+  Chat, 
+  Message,
+  Comment,
+  Request, 
+  Payment
 };

@@ -15,7 +15,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             foreignKey:true,
             allowNull:false
-        }
+        },
+        requestId: {
+            type: DataTypes.INTEGER,
+            foreignKey:true,
+            allowNull:false
+
+             }
     },
     {
         tableName: "chats",

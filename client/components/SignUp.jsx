@@ -55,7 +55,7 @@
   
 //     try {
 //       // Making the request to your API using async/await
-//       const response = await axios.post('http://192.168.103.10:5000/users/register', {
+//       const response = await axios.post('http://192.168.151.34:3000/users/register', {
 //         name,
 //         lastname,
 //         email,
@@ -352,7 +352,7 @@ export default function SignUp() {
     }
 
     try {
-      const response = await axios.post('http://192.168.103.10:5000/users/register', {
+      const response = await axios.post('http://192.168.151.34:3000/users/register', {
         name,
         lastname,
         email,

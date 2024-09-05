@@ -252,7 +252,7 @@ const HeaderUser = ({ route }) => {
 
   useEffect(() => {
     axios
-      .get("http://192.168.1.46:3000/drivers/getAll")
+      .get("http://192.168.151.34:3000/drivers/getAll")
       .then((res) => {
         const drivers = res.data;
         console.log("HEeeeeeeeeeeee", route?.params?.truck_type);

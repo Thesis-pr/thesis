@@ -69,18 +69,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       driverId: {
-<<<<<<< HEAD
           type: DataTypes.INTEGER,
           foreignKey:true,
           allowNull:false
       }
        
-=======
-        type: DataTypes.INTEGER,
-        foreignKey: true,
-        allowNull: false,
-      },
->>>>>>> ca27737503a908c10acc49ee842f1ef1715c6b71
     },
     {
       tableName: "requests",

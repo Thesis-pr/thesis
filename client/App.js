@@ -7,7 +7,7 @@ import Plogin from "./components/Plogin.jsx"
 import Pconnection from './components/Pconnection.jsx';
 import Commencer from './components/Commencer.jsx';
 import RegisterPrestitaire from './components/RegisterPrestitaire.jsx';
-import RegisterPrestitaire2 from './components/RegisterPrestitaire2.jsx';
+// import RegisterPrestitaire2 from './components/RegisterPrestitaire2.jsx';
 import About1 from'./components/About1.jsx'
 import About2 from'./components/About2.jsx'
 import About3 from'./components/About3.jsx'
@@ -17,8 +17,9 @@ import Demande from './components/Demande.js';
 import ButtonNext from './components/ButtonNext.jsx';
 import LoginPrestataire from './components/LoginPrestataire.jsx'
 
+import PaymentScreen from './Screen/PaymentScreen.js'
 import HeaderUser from './components/HeaderUser.js';
-
+import PaymentSuccess from './Screen/PaymentScreen.js'
 
 
 
@@ -28,8 +29,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="About1">
-        <Stack.Screen
+      <Stack.Navigator initialRouteName="PaymentScreen">
+        {/* <Stack.Screen
           name="About1"
           component={About1}
           options={{ headerShown: false }}
@@ -74,7 +75,18 @@ export default function App() {
           component={SignUp}
           options={{ headerShown: false }}
         /> 
+         */}
+         <Stack.Screen
+          name="PaymentScreen"
+          component={PaymentScreen}
+          options={{ headerShown: false }}
+        />
          
+         <Stack.Screen
+          name="success"
+          component={PaymentSuccess}
+          options={{ headerShown: false }}
+        />
         
 
 

@@ -36,7 +36,7 @@
 //     }
 
 //     try {
-//       const response = await axios.post('http://192.168.103.13:5000/drivers/register', {
+//       const response = await axios.post('http://192.168.103.13:3000/drivers/register', {
 //         mail,
 //         address,
 //         name,
@@ -390,7 +390,7 @@ const handleCameraClick = async () => {
 
     try {
       // Making the request to your API using async/await
-      const response = await axios.post('http://192.168.103.10:5000/drivers/register', {
+      const response = await axios.post('http://192.168.151.34:3000/drivers/register', {
         name,
         lastname,
         image,
@@ -904,7 +904,7 @@ export default RegisterPrestataire;
   //   });
 
   //   try {
-  //     const response = await axios.post('http://192.168.103.13:5000/drivers/register', formData, {
+  //     const response = await axios.post('http://192.168.103.13:3000/drivers/register', formData, {
   //       headers: {
   //         'Content-Type': 'multipart/form-data',
   //       },
