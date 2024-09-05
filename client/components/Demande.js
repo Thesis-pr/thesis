@@ -64,7 +64,7 @@ export default function Demande({ route }) {
         <View style={styles.fixButton}>
           <ButtonNext
             style={styles.button}
-            targetScreen={"DemenageurNum"}
+            targetScreen={"HowMuchLevel"}
             buttonColor="white"
             buttonText="Précédent"
             textColor="#0078FA"

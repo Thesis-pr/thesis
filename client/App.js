@@ -24,90 +24,90 @@ import Itenerarymap from "./components/Itenerarymap";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Depart">
-    //     <Stack.Screen
-    //       name="Depart"
-    //       component={Depart}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="HouseLevel"
-    //       component={HouseLevel}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="HowMuchLevel"
-    //       component={HowMuchLevel}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="DemenageurNum"
-    //       component={DemenageurNum}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="Demande"
-    //       component={Demande}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="Telephone"
-    //       component={Telephone}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="Datetime"
-    //       component={Datetime}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="Duration"
-    //       component={Duration}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="ExpoMaps"
-    //       component={ExpoMaps}
-    //       options={{ headerShown: false }}
-    //     />
-
-    //     <Stack.Screen
-    //       name="HeaderUser"
-    //       component={HeaderUser}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="RequestDetails"
-    //       component={RequestDetails}
-    //       options={{ headerShown: false }}
-    //     />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-
-    /**
-     * ! prestataire
-     */
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PrestatairePage">
+      <Stack.Navigator initialRouteName="Depart">
         <Stack.Screen
-          name="PrestatairePage"
-          component={PrestatairePage}
+          name="Depart"
+          component={Depart}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HouseLevel"
+          component={HouseLevel}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HowMuchLevel"
+          component={HowMuchLevel}
+          options={{ headerShown: false }}
+        />
+        {/* <Stack.Screen
+          name="DemenageurNum"
+          component={DemenageurNum}
+          options={{ headerShown: false }}
+        /> */}
+        <Stack.Screen
+          name="Demande"
+          component={Demande}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Telephone"
+          component={Telephone}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Datetime"
+          component={Datetime}
+          options={{ headerShown: false }}
+        />
+        {/* <Stack.Screen
+          name="Duration"
+          component={Duration}
+          options={{ headerShown: false }}
+        /> */}
+        <Stack.Screen
+          name="ExpoMaps"
+          component={ExpoMaps}
           options={{ headerShown: false }}
         />
 
         <Stack.Screen
-          name="AcceptRequest"
-          component={AcceptRequest}
+          name="HeaderUser"
+          component={HeaderUser}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Itenerarymap"
-          component={Itenerarymap}
+          name="RequestDetails"
+          component={RequestDetails}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
+
+    /**
+     * ! prestataire
+     */
+    //   <NavigationContainer>
+    //     <Stack.Navigator initialRouteName="PrestatairePage">
+    //       <Stack.Screen
+    //         name="PrestatairePage"
+    //         component={PrestatairePage}
+    //         options={{ headerShown: false }}
+    //       />
+
+    //       <Stack.Screen
+    //         name="AcceptRequest"
+    //         component={AcceptRequest}
+    //         options={{ headerShown: false }}
+    //       />
+    //       <Stack.Screen
+    //         name="Itenerarymap"
+    //         component={Itenerarymap}
+    //         options={{ headerShown: false }}
+    //       />
+    //     </Stack.Navigator>
+    //   </NavigationContainer>
   );
 }
 

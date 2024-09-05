@@ -8,8 +8,9 @@ import ButtonNext from "./ButtonNext";
 
 const HowMuchLevel = ({ route }) => {
   const [count, setCount] = useState(0);
-
   const [savedLevel, setSavedLevel] = useState({});
+  const [countDem, setCountDem] = useState(0);
+  const [savedHelperNum, setSavedHelperNum] = useState({});
   const { homeCategory } = route?.params ?? {};
 
   console.log("homeCategory", route.params);
@@ -35,11 +36,39 @@ const HowMuchLevel = ({ route }) => {
     });
   };
 
+  const addNumDem = () => {
+    setCountDem((prev) => {
+      const newCount = prev + 1;
+      if (newCount <= 6) {
+        let obj = { ...route.params, helper: newCount };
+        setSavedHelperNum(obj);
+        return newCount;
+      }
+      return prev;
+    });
+  };
+
+  const removeNumDem = () => {
+    setCountDem((prev) => {
+      const newCount = prev > 0 ? prev - 1 : 0;
+
+      let obj = { ...route.params, helper: newCount };
+      setSavedHelperNum(obj);
+      return newCount;
+    });
+  };
+
   useEffect(() => {
     let obj = { ...route.params, floors: count };
     setSavedLevel(obj);
     console.log("level updated", count);
   }, [count, route.params]);
+
+  useEffect(() => {
+    let obj = { ...route.params, helper: countDem };
+    setSavedHelperNum(obj);
+    console.log("level updated", count);
+  }, [countDem, route.params]);
 
   return (
     <View style={styles.container}>
@@ -57,6 +86,21 @@ const HowMuchLevel = ({ route }) => {
             <FontAwesome5 name="plus-circle" size={40} color="#0078FA" />
           </Pressable>
         </View>
+
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>
+            Combien de déménageurs avez-vous besoin ?
+          </Text>
+        </View>
+        <View style={styles.containerIcon}>
+          <Pressable onPress={removeNumDem}>
+            <AntDesign name="minuscircle" size={40} color="#0078FA" />
+          </Pressable>
+          <Text style={styles.countText}>{countDem}</Text>
+          <Pressable onPress={addNumDem}>
+            <FontAwesome5 name="plus-circle" size={40} color="#0078FA" />
+          </Pressable>
+        </View>
         <View style={styles.fixButton}>
           <ButtonNext
             style={styles.button}
@@ -67,8 +111,8 @@ const HowMuchLevel = ({ route }) => {
           />
           <ButtonNext
             style={styles.button}
-            params={savedLevel}
-            targetScreen={"DemenageurNum"}
+            params={{ ...route.params, helper: countDem, floors: count }}
+            targetScreen={"Demande"}
             buttonColor="#0078FA"
             buttonText="Suivant"
             textColor="white"

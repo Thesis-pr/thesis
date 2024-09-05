@@ -316,7 +316,7 @@ export default function PrestatairePage() {
 
   const handleAcceptReq = (id) => {
     axios
-      .put(`http://192.168.104.19:3000/request/update/${id}`)
+      .put(`http://192.168.1.46:3000/request/update/${id}`)
       .then((res) => {
         const updated = res.data;
         console.log("updaaaaaaaaaate", updated);
@@ -350,7 +350,7 @@ export default function PrestatairePage() {
 
   useEffect(() => {
     axios
-      .get(`http://192.168.104.19:3000/request/getOne/5`) // driverId hard coded we need the log in
+      .get(`http://192.168.1.46:3000/request/getOne/5`) // driverId hard coded we need the log in
       .then((res) => {
         const reqst = res.data;
 
