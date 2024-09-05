@@ -141,7 +141,7 @@ export default function HouseLevel({ route }) {
           textColor="white"
         />
       </View>
-      <Footer />
+      
     </View>
   );
 }

@@ -44,7 +44,7 @@ const HowMuchLevel = ({ route }) => {
   return (
     <View style={styles.container}>
       <Header />
-      <View style={styles.innerContainer}>
+     
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Combien de niveaux avez vous ?</Text>
         </View>
@@ -60,7 +60,7 @@ const HowMuchLevel = ({ route }) => {
         <View style={styles.fixButton}>
           <ButtonNext
             style={styles.button}
-            targetScreen={"HouseLevel"}
+            targetScreen={"Depart"}
             buttonColor="white"
             buttonText="Precedent"
             textColor="#0078FA"
@@ -74,28 +74,17 @@ const HowMuchLevel = ({ route }) => {
             textColor="white"
           />
         </View>
-        <Footer />
+       
       </View>
-    </View>
+  
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    gap: 150,
-  },
-  innerContainer: {
-    flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-  innerContainer: {
-    flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "center",
-    alignSelf: "center",
+    flex: 1,
+    justifyContent: "space-between",
+    gap: 85,
   },
   titleContainer: {
     alignItems: "center",
@@ -115,14 +104,20 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 20,
+
   },
   fixButton: {
+    // flexDirection: "row",
+    // gap: 40,
+    // justifyContent: "center",
+    // marginTop: 95,
     flexDirection: "row",
+   
     gap: 40,
-    alignSelf: "center",
-    marginTop: 170,
-    marginBottom: 40,
+    marginBottom:100,
+    justifyContent: "center",
   },
+  
 });
 
 export default HowMuchLevel;

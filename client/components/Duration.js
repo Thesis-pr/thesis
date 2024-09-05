@@ -70,7 +70,7 @@ const Duration = ({ route }) => {
           textColor="white"
         />
       </View>
-      <Footer />
+  
     </View>
   );
 };
@@ -80,10 +80,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     gap: 85,
+  
   },
   titleContainer: {
     alignItems: "center",
     marginVertical: 20,
+  
   },
   title: {
     fontSize: 20,
@@ -99,10 +101,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 20,
+  
   },
   fixButton: {
     flexDirection: "row",
+   
     gap: 40,
+    marginBottom:100,
     justifyContent: "center",
   },
 });

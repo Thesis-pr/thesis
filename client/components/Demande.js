@@ -78,7 +78,7 @@ export default function Demande({ route }) {
             textColor="white"
           />
         </View>
-        <Footer style={styles.footer} />
+      
       </View>
     </View>
   );
@@ -91,8 +91,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    padding: 10,
+    padding: 0,
   },
   textTitle: {
     fontWeight: "bold",
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
   flatListContainer: {
     flexGrow: 1,
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: 0,
   },
   imageContainer: {
     alignItems: "center",
@@ -124,11 +123,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
-    paddingHorizontal: 60,
-    marginTop: 30,
+    paddingHorizontal:80,
+    // marginTop: 80, // Adjusted from 70 to 10 to move the buttons higher
+    marginBottom:110,
   },
   button: {
-    marginTop: 20,
+    marginTop: 50, // Adjusted from 30 to 0 to move the buttons higher
+   
   },
   checkmarkContainer: {
     position: "absolute",
@@ -141,8 +142,5 @@ const styles = StyleSheet.create({
     color: "#0078FA",
     fontSize: 40,
     fontWeight: "bold",
-  },
-  footer: {
-    marginTop: 40,
   },
 });

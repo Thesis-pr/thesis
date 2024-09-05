@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import ButtonNext from "./ButtonNext";
-import Footer from "./Footer";
+
 import Header from "./Header";
 
 const Telephone = ({ route }) => {
@@ -68,7 +68,7 @@ const Telephone = ({ route }) => {
             </View>
           </ScrollView>
           <View style={styles.footerContainer}>
-            <Footer />
+          
           </View>
         </KeyboardAvoidingView>
       </SafeAreaView>
@@ -81,7 +81,7 @@ export default Telephone;
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
   },
   content: {
     flexGrow: 1,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
-    paddingHorizontal: 60,
+    paddingHorizontal: 80,
     marginTop: 20,
   },
   button: {

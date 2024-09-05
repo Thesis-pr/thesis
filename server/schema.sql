@@ -58,22 +58,22 @@ INSERT INTO `demenagego`.`ratings` (id, value, createdAt, updatedAt, userId, dri
 
 
 -- Inserting data into requests
-INSERT INTO `demenagego`.`request` (id, date, duration, longitude, latitude, status, helper, truck_type, property_type, floors, floor_number, telephone, userId, driverId, createdAt, updatedAt) VALUES
-(1, '2023-10-01', 30, 10.1815, 36.8065, 'pending', 5, 'grand camion', 'maison', 2, 1, '1234567890', 1, 1, NOW(), NOW()),
-(2, '2023-10-02', 45, 10.7603, 34.7404, 'pending', 2, 'petit camion', 'apartement', 3, 2, '0987654321', 2, 2, NOW(), NOW()),
-(3, '2023-10-03', 10, 10.6342, 35.8256, 'completed', 3, 'grand fourgon', 'maison', 1, 1, '1122334455', 3, 3, NOW(), NOW()),
-(4, '2023-10-04', 10, 10.1010, 35.6782, 'refused', 0, 'petit camion', 'Garde-meuble', 2, 1, '2233445566', 4, 4, NOW(), NOW()),
-(5, '2023-10-05', 10, 10.0972, 33.8833, 'completed', 4, 'grand camion', 'maison', 3, 2, '3344556677', 5, 5, NOW(), NOW()),
-(6, '2023-10-06', 20, 10.1234, 36.1234, 'completed', 3, 'grand camion', 'maison', 2, 1, '1234567891', 1, 2, NOW(), NOW()),
-(7, '2023-10-07', 15, 10.5678, 36.5678, 'pending', 4, 'petit camion', 'apartement', 1, 1, '1234567892', 2, 3, NOW(), NOW()),
-(8, '2023-10-08', 25, 10.9101, 36.9101, 'completed', 2, 'grand fourgon', 'maison', 3, 2, '1234567893', 3, 4, NOW(), NOW()),
-(9, '2023-10-09', 30, 10.2345, 36.2345, 'refused', 0, 'petit camion', 'Garde-meuble', 2, 1, '1234567894', 4, 5, NOW(), NOW()),
-(10, '2023-10-10', 40, 10.6789, 36.6789, 'completed', 5, 'grand camion', 'maison', 3, 2, '1234567895', 5, 1, NOW(), NOW()),
-(11, '2023-10-11', 50, 10.3456, 36.3456, 'pending', 2, 'grand fourgon', 'apartement', 2, 1, '1234567896', 1, 2, NOW(), NOW()),
-(12, '2023-10-12', 35, 10.4567, 36.4567, 'completed', 3, 'petit camion', 'maison', 1, 1, '1234567897', 2, 3, NOW(), NOW()),
-(13, '2023-10-13', 45, 10.5678, 36.5678, 'pending', 4, 'grand camion', 'Garde-meuble', 3, 2, '1234567898', 3, 4, NOW(), NOW()),
-(14, '2023-10-14', 20, 10.6789, 36.6789, 'completed', 1, 'petit camion', 'maison', 2, 1, '1234567899', 4, 5, NOW(), NOW()),
-(15, '2023-10-15', 30, 10.7890, 36.7890, 'refused', 0, 'grand fourgon', 'apartement', 3, 2, '1234567800', 5, 1, NOW(), NOW());
+INSERT INTO `demenagego`.`requests` (id, date, duration, longitude, latitude, status, helper, truck_type, property_type, floors, floor_number, telephone, userId, driverId, createdAt, updatedAt) VALUES
+(1, '2023-10-01', 30, 10.1815, 36.8065, 'pending', 5, 'grand camion', 'house', 2, 1, '1234567890', 1, 1, NOW(), NOW()),
+(2, '2023-10-02', 45, 10.7603, 34.7404, 'pending', 2, 'petit camion', 'apartment', 3, 2, '0987654321', 2, 2, NOW(), NOW()),
+(3, '2023-10-03', 10, 10.6342, 35.8256, 'completed', 3, 'grand fourgon', 'house', 1, 1, '1122334455', 3, 3, NOW(), NOW()),
+(4, '2023-10-04', 10, 10.1010, 35.6782, 'refused', 0, 'petit camion', 'house', 2, 1, '2233445566', 4, 4, NOW(), NOW()),
+(5, '2023-10-05', 10, 10.0972, 33.8833, 'completed', 4, 'grand camion', 'house', 3, 2, '3344556677', 5, 5, NOW(), NOW()),
+(6, '2023-10-06', 20, 10.1234, 36.1234, 'completed', 3, 'grand camion', 'house', 2, 1, '1234567891', 1, 2, NOW(), NOW()),
+(7, '2023-10-07', 15, 10.5678, 36.5678, 'pending', 4, 'petit camion', 'apartment', 1, 1, '1234567892', 2, 3, NOW(), NOW()),
+(8, '2023-10-08', 25, 10.9101, 36.9101, 'completed', 2, 'grand fourgon', 'house', 3, 2, '1234567893', 3, 4, NOW(), NOW()),
+(9, '2023-10-09', 30, 10.2345, 36.2345, 'refused', 0, 'petit camion', 'house', 2, 1, '1234567894', 4, 5, NOW(), NOW()),
+(10, '2023-10-10', 40, 10.6789, 36.6789, 'completed', 5, 'grand camion', 'house', 3, 2, '1234567895', 5, 1, NOW(), NOW()),
+(11, '2023-10-11', 50, 10.3456, 36.3456, 'pending', 2, 'grand fourgon', 'apartment', 2, 1, '1234567896', 1, 2, NOW(), NOW()),
+(12, '2023-10-12', 35, 10.4567, 36.4567, 'completed', 3, 'petit camion', 'house', 1, 1, '1234567897', 2, 3, NOW(), NOW()),
+(13, '2023-10-13', 45, 10.5678, 36.5678, 'pending', 4, 'grand camion', 'house', 3, 2, '1234567898', 3, 4, NOW(), NOW()),
+(14, '2023-10-14', 20, 10.6789, 36.6789, 'completed', 1, 'petit camion', 'house', 2, 1, '1234567899', 4, 5, NOW(), NOW()),
+(15, '2023-10-15', 30, 10.7890, 36.7890, 'refused', 0, 'grand fourgon', 'apartment', 3, 2, '1234567800', 5, 1, NOW(), NOW());
 
 -- Inserting data into comments
 INSERT INTO `demenagego`.`comments` (id, content, date, userId, driverId, createdAt, updatedAt) VALUES

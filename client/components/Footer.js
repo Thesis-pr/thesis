@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
-
+import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 import Octicons from "@expo/vector-icons/Octicons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-import React from "react";
+import { horizontalScale, verticalScale, moderateScale } from "../components/responsiveDesign/responsivedesign";
 
 export default function Footer() {
   return (
@@ -26,12 +26,13 @@ export default function Footer() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#eee",
-    paddingHorizontal: 40,
-    paddingVertical: 15,
+   backgroundColor: "#eee",
+    paddingHorizontal: horizontalScale(40),
+    paddingVertical: verticalScale(20),
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
-    gap: 50,
+    gap: moderateScale(100),
+    bottom:0
   },
 });

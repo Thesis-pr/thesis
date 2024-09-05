@@ -2,31 +2,6 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
-export default function ButtonNext({
-  targetScreen,
-  buttonText,
-  buttonColor,
-  textColor,
-  params = {},
-}) {
-  return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignSelf: "center",
-        gap: 60,
-      }}
-    >
-      <HeaderButton
-        text={buttonText}
-        btnColor={buttonColor}
-        textColor={textColor}
-        targetScreen={targetScreen}
-        params={params}
-      />
-    </View>
-  );
-}
 
 const HeaderButton = (props) => {
   const navigation = useNavigation();
@@ -56,3 +31,42 @@ const HeaderButton = (props) => {
     </TouchableOpacity>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+export default function ButtonNext({
+  targetScreen,
+  buttonText,
+  buttonColor,
+  textColor,
+  params = {},
+}) {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        alignSelf: "center",
+        gap: 60,
+      }}
+    >
+      <HeaderButton
+        text={buttonText}
+        btnColor={buttonColor}
+        textColor={textColor}
+        targetScreen={targetScreen}
+        params={params}
+      />
+    </View>
+  );
+}
+
+

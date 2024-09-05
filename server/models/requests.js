@@ -2,6 +2,15 @@ module.exports = (sequelize, DataTypes) => {
   const Request = sequelize.define(
     "request",
     {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+
+
+
       date: {
         type: DataTypes.STRING,
         allowNull: false,

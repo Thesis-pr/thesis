@@ -248,7 +248,7 @@ const Datetime = ({ route }) => {
             <ButtonNext
               style={styles.button}
               targetScreen={"Telephone"}
-              buttonColor="white"
+             buttonColor="white"
               buttonText="Précédent"
               textColor="#0078FA"
             />
@@ -263,7 +263,7 @@ const Datetime = ({ route }) => {
           </View>
         </View>
         <View>
-          <Footer />
+       
         </View>
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -274,13 +274,14 @@ const Datetime = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    
   },
   content: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 16,
+
   },
   buttonContainer: {
     marginBottom: 20,
@@ -316,7 +317,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
     paddingHorizontal: 60,
-    marginTop: 30,
+    marginBottom:50,
+   
   },
   image: {
     width: 60,

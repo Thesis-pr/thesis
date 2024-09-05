@@ -72,23 +72,24 @@ const DemenageurNum = ({ route }) => {
           textColor="white"
         />
       </View>
-      <Footer />
+     
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "column",
-    gap: 50,
+    flex: 1,
+    justifyContent: "space-between",
+    gap: 85,
   },
   titleContainer: {
     alignItems: "center",
+    marginVertical: 20,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 80,
   },
   containerIcon: {
     flexDirection: "row",
@@ -100,12 +101,18 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 20,
+
   },
   fixButton: {
+    // flexDirection: "row",
+    // gap: 40,
+    // justifyContent: "center",
+    // marginTop: 95,
     flexDirection: "row",
+   
     gap: 40,
+    marginBottom:100,
     justifyContent: "center",
-    marginTop: 95,
   },
 });
 
