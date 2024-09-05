@@ -10,6 +10,11 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDBqhCUgOmuqKJS8Sz61RSea61hk75EImA"
+        }
+      },
      
       "package": "thesis.hi"
     },

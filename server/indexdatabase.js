@@ -61,7 +61,7 @@ sequelize
   .catch((error) => console.log("unable to connect to the database", error));
 
 sequelize
-  .sync()
+  .sync({ alter: true }) // shady
   .then(() => {
     console.log("database and tables created successfully");
   })
@@ -74,4 +74,5 @@ module.exports = {
   sequelize,
   User,
   Driver,
+  Request,
 };

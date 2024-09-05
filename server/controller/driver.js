@@ -1,7 +1,7 @@
-const {Driver} =require ('../indexdatabase')
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const { Driver } = require("../indexdatabase");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 const secret = process.env.JWT_SECRET;
 const cloudinary = require('cloudinary').v2
 
@@ -25,15 +25,14 @@ cloudinary.config({
     }
 }
 
-const getOneDriver= async (req, res) => {
-    try {
-        const oneDriver = await Driver.findByPk(req.params.id);
-        res.status(200).send(oneDriver);
-    } catch (err) {
-        res.status(404).send(err);
-    }
-}
-
+const getOneDriver = async (req, res) => {
+  try {
+    const oneDriver = await Driver.findByPk(req.params.id);
+    res.status(200).send(oneDriver);
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
 
 const register = async (req, res) => {
     try {
@@ -42,9 +41,9 @@ const register = async (req, res) => {
         const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^_\s]{6,}$/.test(password);
         const existingDriver = await Driver.findOne({ where: { mail } });
 
-        if (existingDriver) {
-            return res.status(400).send({ message: 'Email already in use' });
-        }
+    if (existingDriver) {
+      return res.status(400).send({ message: "Email already in use" });
+    }
 
         if (!isPasswordValid) {
             return res.status(400).send({ message: 'Password does not meet the criteria' });
@@ -149,36 +148,40 @@ const loginDriver = async (req, res) => {
 
 
 const deleteDriver = async (req, res) => {
-    try {
-        let idDriver = req.params.id;
+  try {
+    let idDriver = req.params.id;
 
-        await  Driver.destroy({
-            where: {
-                id: idDriver
-            }
-        });
+    await Driver.destroy({
+      where: {
+        id: idDriver,
+      },
+    });
 
-        res.status(200).send('Deleted Driver item with ID:' + idDriver);
-    } catch (error) {
-        console.error('Error deleting Driver item:', error);
-        res.status(500).send({ error: 'An error occurred while deleting Driver item' });
-    }
-}; 
+    res.status(200).send("Deleted Driver item with ID:" + idDriver);
+  } catch (error) {
+    console.error("Error deleting Driver item:", error);
+    res
+      .status(500)
+      .send({ error: "An error occurred while deleting Driver item" });
+  }
+};
 
 const updateDriver = async (req, res) => {
-    try {
-        const driverId = req.params.id;
-        const [updatedRows] = await Driver.update(req.body, { where: { id: driverId  } });
+  try {
+    const driverId = req.params.id;
+    const [updatedRows] = await Driver.update(req.body, {
+      where: { id: driverId },
+    });
 
-        if (updatedRows === 0) {
-            return res.status(404).send({ message: 'User not found' });
-        }
-
-        res.send({ message: 'User updated successfully' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send({ message: 'Server error', error: err.message });
+    if (updatedRows === 0) {
+      return res.status(404).send({ message: "User not found" });
     }
+
+    res.send({ message: "User updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Server error", error: err.message });
+  }
 };
 
 

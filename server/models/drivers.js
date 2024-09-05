@@ -2,6 +2,13 @@ module.exports = (sequelize, DataTypes) => {
   const Driver = sequelize.define(
     "driver",
     {
+      driverId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+
       name: {
         type: DataTypes.STRING(50),
         allowNull: false,
@@ -62,12 +69,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-
       isActive: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true,
       },
+
       isConfirmed: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

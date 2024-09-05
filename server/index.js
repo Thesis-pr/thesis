@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const userRoute = require("./route/usersRoute");
 const driveRoute = require("./route/driverRoute");
+const requestRoute = require("./route/request");
 
 const PORT = 5000;
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use("/users", userRoute);
 app.use("/drivers", driveRoute);
+app.use("/request", requestRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello from the server!");
