@@ -678,7 +678,7 @@ const handleCameraClick = async () => {
                 numColumns={2}
                 contentContainerStyle={styles.flatListContainer}
               />
-             <View style={styles.buttonContainer}  >
+             <View style={styles.buttonContainer2}  >
       
       <TouchableOpacity style={styles.buttonBack} onPress={handlePrecedentPress}    >
         <Text style={styles.buttonText}>Précédente</Text>
@@ -707,7 +707,7 @@ const styles = StyleSheet.create({
 
   container: {
     width: '100%',
-    backgroundColor: '#FFFFFF',
+    // backgroundColor: '#FFFFFF',
     padding: 40,
     borderRadius: 12,
     
@@ -765,7 +765,8 @@ const styles = StyleSheet.create({
   innerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
+    
     
   },
   innerContainer2: {
@@ -829,6 +830,14 @@ buttonContainer: {
   flexDirection: 'row', 
   justifyContent: 'space-between', 
   alignItems: 'center', 
+},
+buttonContainer2: {
+  flexDirection: 'row', 
+  justifyContent: 'space-between', 
+  alignItems: 'center', 
+  width: '100%',  // Ensure it spans across the screen width
+  paddingHorizontal: 10, // Add some horizontal padding for spacing
+   
 },
 flatListContainer: {
   // flexGrow: 1,
