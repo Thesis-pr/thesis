@@ -4,9 +4,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: true,
           },
-          date: {
-            type: DataTypes.DATE,
-          },
           userId: {
             type: DataTypes.INTEGER,
             foreignKey: true, 

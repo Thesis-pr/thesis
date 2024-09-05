@@ -88,7 +88,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       tableName: "drivers",
-      timestamps: true, // to track the time when the driver creates or updates their account
+      timestamps: true, 
     }
   );
 
