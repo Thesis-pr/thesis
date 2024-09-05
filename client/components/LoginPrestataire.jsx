@@ -17,20 +17,20 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { jwtDecode } from 'jwt-decode';
 
 
-const Login = () => {
+
+const LoginPres = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://192.168.103.10:5000/users/login', {
+      const response = await axios.post('http://192.168.103.13:5000/drivers/login', {
         email,
         password
       });
       await AsyncStorage.setItem('token', response.data.token);
       const decoded = jwtDecode(response.data.token);
       console.log('Decoded JWT:', decoded);
-      
 
 
       Alert.alert('Success', 'Login successful');
@@ -48,7 +48,8 @@ const Login = () => {
       <View style={styles.container}>
         {/* Image */}
         <Image
-          source={{ uri: 'https://static.vecteezy.com/ti/vecteur-libre/p1/7397313-demenagement-de-domicile-ou-personnes-demenageant-avec-des-boites-d-emballage-en-carton-ou-des-biens-emballes-demenager-vers-de-nouveaux-dans-une-illustration-de-dessin-anime-plat-vectoriel.jpg' }}
+         source={require('../assets/loginpres.png')}
+        //   source={{ uri: 'https://static.vecteezy.com/ti/vecteur-libre/p1/7397313-demenagement-de-domicile-ou-personnes-demenageant-avec-des-boites-d-emballage-en-carton-ou-des-biens-emballes-demenager-vers-de-nouveaux-dans-une-illustration-de-dessin-anime-plat-vectoriel.jpg' }}
           style={styles.image}
         />
 
@@ -86,7 +87,6 @@ const Login = () => {
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Connecté</Text>
         </TouchableOpacity>
-        
       </View>
     </KeyboardAvoidingView>
   );
@@ -171,7 +171,7 @@ image: {
     height: 210, // You can adjust this based on your needs
     
     position: 'absolute', // Ensure the parent has a relative position
-    top: 22, // Adjust positioning if necessary
+    top: 72, // Adjust positioning if necessary
     left: '5%', // Center the image horizontally (50% width minus 25%)
    
   }
@@ -179,7 +179,7 @@ image: {
 
 });
 
-export default Login;
+export default LoginPres;
 
 
 

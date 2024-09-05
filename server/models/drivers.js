@@ -20,9 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       image: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isUrl: true,
-        },
+        
       },
       truck: {
         type: DataTypes.ENUM(
@@ -61,8 +59,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      price: {
-        type: DataTypes.DECIMAL(10, 2),
+      tel: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      
+
+      address: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
       isActive: {
@@ -77,15 +81,15 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: false,
       },
       photoOfcin: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.TEXT,
+          allowNull: false, 
       },
       photoOfdriverLicence: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.TEXT,
+          allowNull: false, 
       },
       carteGrise: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       experience: {
