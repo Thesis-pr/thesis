@@ -11,11 +11,9 @@
           allowNull: false,
         },
         image: {
-          type: DataTypes.STRING,
-          allowNull: true, // Allow null if image is optional
-          validate: {
-            isUrl: true, // Ensures the value is a valid URL
-          },
+          type: DataTypes.TEXT,
+          allowNull: true, 
+        
         },
         email: {
           type: DataTypes.STRING(100),

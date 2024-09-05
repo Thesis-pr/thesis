@@ -6,12 +6,12 @@ const { width } = Dimensions.get('window');
 
  
 
-const About5 = () => {
+const About5 = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* Top navigation */}
-      <View style={styles.skipContainer}>
-        <TouchableOpacity>
+      <View style={styles.skipContainer}   >
+        <TouchableOpacity onPress={() => navigation.navigate('Commencer')}   >
           <Text style={styles.skipText}> Skip </Text>
         </TouchableOpacity>
       </View>
@@ -20,17 +20,26 @@ const About5 = () => {
       <View style={styles.imageContainer}>
         
         <Image
-          source={{ uri: 'https://cdn.discordapp.com/attachments/1272859880247787535/1274043100985163902/Screenshot_2024-08-16-17-31-10-716-edit_com.alod.jpg?ex=66c96259&is=66c810d9&hm=8b781a942f32c01b1897970d1faf30abbcfd739d4b9f708bf49c815d9870a55d&' }} 
+          source={require('../assets/about5.jpg')}
+
           style={styles.image}
           resizeMode="contain"
         />
       </View>
-      <Text style={styles.title}>plusieurs méthodes de paiement</Text>
-      <Text style={styles.subtitle}>vous pouvez choisir le mode de paiement qui vous convient, comme payer en espèces  ou par carte de crédit        </Text>
+      <Text style={styles.title}>Options de paiement flexibles</Text>
+      <Text style={styles.subtitle}>Choisissez la méthode de paiement qui vous convient, que ce soit en espèces, par carte de crédit, ou d'autres options adaptées à vos besoins       </Text>
 
+      <View style={styles.buttonWrapper}>
+  <TouchableOpacity style={[styles.buttonBack]}  onPress={() => navigation.navigate('About4')} >
+    <Text style={styles.buttonText}>Précédente</Text>
+  </TouchableOpacity>
 
+  <TouchableOpacity style={[styles.buttonNext]} onPress={() => navigation.navigate('Commencer')}      >
+    <Text style={styles.buttonText}>Suivante</Text>
+  </TouchableOpacity>
+</View>
      
-      <ButtonNext style={styles.button}/>
+      {/* <ButtonNext style={styles.button}/> */}
       
       {/* Pagination Indicators */}
       <TouchableOpacity style={styles.paginationContainer}>
@@ -103,7 +112,33 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginTop:5 ,
   },
-  
+  buttonWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', // Ensures equal space between the buttons
+    alignItems: 'center',
+    paddingHorizontal: 10, // Add padding between the buttons
+    marginTop: 20, // Add margin to the top of the button group
+  },
+  buttonNext: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+  },
+  buttonBack: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
   
 });
 

@@ -1,93 +1,108 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
-import ButtonNext from "./ButtonNext";
-import Header from "./Header";
-import Footer from "./Footer";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 
-export default function Demande() {
-  const handleImagePress = () => {
-    alert("Image pressed!");
+
+export default function Demande({ route }) {
+  const [truckTypeSaved, setTruckTypeSaved] = useState("");
+
+  
+
+  const truckImages = [
+    { id: "1", source: require("../assets/1.jpg"), label: "fourgon", truck_price:100},
+    { id: "2", source: require("../assets/2.jpg"), label: "grand fourgon", truck_price:150},
+    { id: "3", source: require("../assets/3.jpg"), label: "petit camion", truck_price:250 },
+    {
+      id: "4",
+      source: require("../assets/4.jpg"),
+      label: "grand camion",
+      truck_price:350
+    },
+  ];
+
+
+  const handleImagePress = (label) => {
+    
+    setTruckTypeSaved(label);
   };
 
+  const renderItem = ({ item }) => (
+    <View style={styles.imageContainer}>
+      <TouchableOpacity onPress={() => handleImagePress(item.label)}>
+        <Image source={item.source} style={styles.image} />
+        <Text style={styles.text}>{item.label}</Text>
+        <Text style={styles.text}>{item.truck_price}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+
   return (
-    <View style={styles.demandeContainer}>
-      <Header />
-      <View>
+    <View style={styles.container}>
+      
+      <View style={styles.innerContainer}>
         <Text style={styles.textTitle}>
           Quelle taille de camion pour déménager ?
         </Text>
+        <FlatList
+          data={truckImages}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+          contentContainerStyle={styles.flatListContainer}
+        />
+      
+       
       </View>
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/1.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Petit utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 4 m3</Text>
-        </View>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/2.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Petit utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 9 m3</Text>
-        </View>
-      </View>
-
-      <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/3.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Moyen utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 15 m3</Text>
-        </View>
-        <View style={styles.imageContainer}>
-          <TouchableOpacity onPress={handleImagePress}>
-            <Image source={require("../assets/4.jpg")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.text}>Grand utilitaire</Text>
-          <Text style={styles.text}>Jusqu'à 20 m3</Text>
-        </View>
-      </View>
-
-      <ButtonNext style={styles.button} />
-      <Footer style={styles.footer} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  demandeContainer: {
-    // marginBottom: 100,
-    flex: 1,
-    flexDirection: "sapce-between",
-    gap: 14,
-  },
   container: {
-    flexDirection: "row",
-    marginTop: 30,
-    justifyContent: "space-around",
+    flex: 1,
+  },
+  innerContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+  },
+  textTitle: {
+    fontWeight: "bold",
+    fontSize: 18,
+    marginVertical: 20,
+  },
+  flatListContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
   },
   imageContainer: {
     alignItems: "center",
-    width: 160,
-    marginTop: 10,
+    margin: 10,
   },
   image: {
     width: 150,
-    height: 80,
+    height: 100,
+    resizeMode: "contain",
   },
   text: {
     marginTop: 5,
     textAlign: "center",
   },
-  button: {
-    marginTop: 50,
-  },
-  textTitle: {
-    fontWeight: "bold",
+  fixButton: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 60,
     marginTop: 20,
-    marginLeft: 50,
+  },
+  button: {
+    marginTop: 20,
   },
 });

@@ -6,6 +6,10 @@ const sequelize = new Sequelize(config.database, config.user, config.password, {
   dialect: "mysql",
 });
 
+
+
+
+
 const User = require("./models/users.js")(sequelize, DataTypes);
 const Driver = require("./models/drivers.js")(sequelize, DataTypes);
 const Request = require("./models/requests.js")(sequelize, DataTypes);

@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
       driverId: {
           type: DataTypes.INTEGER,
           foreignKey:true,
-          allowNull:true
+          allowNull:false
       }
        
     },

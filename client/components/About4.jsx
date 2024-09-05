@@ -6,12 +6,12 @@ const { width } = Dimensions.get('window');
 
  
 
-const About4 = () => {
+const About4 = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* Top navigation */}
-      <View style={styles.skipContainer}>
-        <TouchableOpacity>
+      <View style={styles.skipContainer}        >
+        <TouchableOpacity   onPress={() => navigation.navigate('Commencer')}    >
           <Text style={styles.skipText}> Skip </Text>
         </TouchableOpacity>
       </View>
@@ -20,17 +20,26 @@ const About4 = () => {
       <View style={styles.imageContainer}>
         
         <Image
-          source={{ uri: 'https://cdn.discordapp.com/attachments/1272859880247787535/1274042575568769096/hand-drawn-moving-house-mover-illustration-254655475_iconl_nowm.webp?ex=66c961dc&is=66c8105c&hm=bed5b9452d0c1413d410007fd09f03e45c98bbdc292dd7422376341f5df4f69a&' }} 
+          source={require('../assets/about4.png')}
+
           style={styles.image}
           resizeMode="contain"
         />
       </View>
-      <Text style={styles.title}> suivi immédiat du déménagement à tout moment</Text>
-      <Text style={styles.subtitle}> avec la fonction de suivi de l'envoi, visualisez à tout moment directement toutes les étapes de  démangemnt      </Text>
+      <Text style={styles.title}> Suivi en temps réel de votre déménagement</Text>
+      <Text style={styles.subtitle}> Suivez chaque étape de votre déménagement en temps réel grâce à notre fonctionnalité de suivi intégré   </Text>
 
+      <View style={styles.buttonWrapper}>
+  <TouchableOpacity style={[styles.buttonBack]} onPress={() => navigation.navigate('About3')}         >
+    <Text style={styles.buttonText}>Précédente</Text>
+  </TouchableOpacity>
 
+  <TouchableOpacity style={[styles.buttonNext]}  onPress={() => navigation.navigate('About5')}  >
+    <Text style={styles.buttonText}>Suivante</Text>
+  </TouchableOpacity>
+</View>
      
-      <ButtonNext style={styles.button}/>
+      {/* <ButtonNext style={styles.button}/> */}
       
       {/* Pagination Indicators */}
       <TouchableOpacity style={styles.paginationContainer}>
@@ -103,7 +112,33 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginTop:5 ,
   },
-  
+  buttonWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', // Ensures equal space between the buttons
+    alignItems: 'center',
+    paddingHorizontal: 10, // Add padding between the buttons
+    marginTop: 20, // Add margin to the top of the button group
+  },
+  buttonNext: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+  },
+  buttonBack: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
   
 });
 

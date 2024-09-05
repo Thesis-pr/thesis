@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
+
 export default function Plogin() {
   return (
     <View style={styles.container}>
@@ -23,7 +25,7 @@ export default function Plogin() {
 
       <TouchableOpacity style={styles.section}>
         <Icon name="lock" size={20} color="#0078FA" />
-        <Text style={styles.sectionText}>Avec H-transport</Text>
+        <Text style={styles.sectionText}>Avec DéménéGo</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.section}>

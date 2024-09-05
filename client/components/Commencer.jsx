@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, Button, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import imga from '../assets/bin.png'
 
-
-export default function Commencer() {
+export default function Commencer({navigation}) {
   return (
     <View style={styles.container}>
       {/* Top Section */}
       <View style={styles.topSection}>
         <Text style={styles.logo}>DÉMÉNAGE-GO</Text>
         <Image 
-          source={{ uri: 'https://cdn.discordapp.com/attachments/1272859880247787535/1276184559595159564/non_profit_organisation.png?ex=66c89afd&is=66c7497d&hm=4293587ec7ae87d4801f48f40585f3e4949cd46afbce3208babd0f14ad48c5d3&' }} // replace with the correct image URL
+          source={imga} 
           style={styles.image} 
         />
       </View>
@@ -19,13 +19,13 @@ export default function Commencer() {
         <Text style={styles.welcomeText}>Bienvenue sur DÉMÉNAGE-GO</Text>
         <Text style={styles.description}>Trouvez le prestataire idéal pour tous les services du quotidien.</Text>
 
-        <TouchableOpacity style={styles.startButton}>
+        <TouchableOpacity style={styles.startButton}     onPress={() => navigation.navigate('SignUp')}      >
           <Text style={styles.buttonText}>Commencer</Text>
         </TouchableOpacity>
 
         <Text style={styles.orText}>Ou, pour proposer vos service</Text>
 
-        <TouchableOpacity style={styles.becomeProviderButton}>
+        <TouchableOpacity style={styles.becomeProviderButton       }   onPress={() => navigation.navigate('RegisterPrestitaire')}        >
           <Text style={styles.becomeProviderButtonText} >Devenir prestataire</Text>
         </TouchableOpacity>
       </View>

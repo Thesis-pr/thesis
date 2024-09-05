@@ -6,12 +6,12 @@ const { width } = Dimensions.get('window');
 
  
 
-const About3 = () => {
+const About3 = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* Top navigation */}
-      <View style={styles.skipContainer}>
-        <TouchableOpacity>
+      <View style={styles.skipContainer}      >
+        <TouchableOpacity     onPress={() => navigation.navigate('Commencer')}          >
           <Text style={styles.skipText}> Skip </Text>
         </TouchableOpacity>
       </View>
@@ -20,17 +20,26 @@ const About3 = () => {
       <View style={styles.imageContainer}>
         
         <Image
-          source={{ uri: 'https://cdn.discordapp.com/attachments/1272859880247787535/1274043101689938003/Screenshot_2024-08-16-17-30-55-048-edit_com.alod.jpg?ex=66c9625a&is=66c810da&hm=c4efd11e29b5efb78f7303644fea2b2e6ac3ba4e64c54ee401af87b179e8330a&' }} 
+                    source={require('../assets/about3.jpg')}
+
           style={styles.image}
           resizeMode="contain"
         />
       </View>
-      <Text style={styles.title}> Sélectionnez le lieu de livraison de l'envoi en nous fournissant le numéro de téléphone du destinataire</Text>
-      <Text style={styles.subtitle}>  avec la fonctionnalité je ne connais pas l'emplacement du destinataire, il est devenu plus facile de localiser le destinataire      </Text>
+      <Text style={styles.title}> Sélectionnez votre nouvelle adresse en toute simplicité</Text>
+      <Text style={styles.subtitle}>  Fournissez le numéro de téléphone du destinataire pour faciliter la localisation précise de votre nouvelle adresse, même si vous ne la connaissez pas encore.      </Text>
 
+      <View style={styles.buttonWrapper}>
+  <TouchableOpacity style={[styles.buttonBack]}  onPress={() => navigation.navigate('About2')}      >
+    <Text style={styles.buttonText}>Précédente</Text>
+  </TouchableOpacity>
 
+  <TouchableOpacity style={[styles.buttonNext]}  onPress={() => navigation.navigate('About4')}  >
+    <Text style={styles.buttonText}>Suivante</Text>
+  </TouchableOpacity>
+</View>
      
-      <ButtonNext style={styles.button}/>
+      {/* <ButtonNext style={styles.button}/> */}
       
       {/* Pagination Indicators */}
       <TouchableOpacity style={styles.paginationContainer}>
@@ -102,7 +111,33 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginTop:5 ,
   },
-  
+  buttonWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', // Ensures equal space between the buttons
+    alignItems: 'center',
+    paddingHorizontal: 10, // Add padding between the buttons
+    marginTop: 20, // Add margin to the top of the button group
+  },
+  buttonNext: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+  },
+  buttonBack: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
   
 });
 

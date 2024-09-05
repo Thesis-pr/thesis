@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView ,Platform} from 'react-native';
 
-export default function Pconnection() {
+export default function Pconnection({navigation}) {
   return (
      
     <KeyboardAvoidingView

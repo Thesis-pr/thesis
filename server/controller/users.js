@@ -3,6 +3,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const secret = process.env.JWT_SECRET;
+const cloudinary = require('cloudinary').v2
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
+
+
 
 
   const getAllUsers= async (req, res) => {
@@ -40,18 +49,23 @@ const getOneUser= async (req, res) => {
         if (!isPasswordValid) {
             return res.status(400).send({ message: 'Password does not meet the criteria' });
         }
-           
+
+        const pic=image
+        const uploaded=await cloudinary.uploader.upload(pic,{})
+        console.log("coud",uploaded);
+        
+
         const newuser= await User.create({
                         name,
                         lastname,
-                        image,
+                        image:uploaded.secure_url,
                         email, 
-                        password: await bcrypt.hash(password, 10)
+                       password : await bcrypt.hash(password, 10)
                         
                     })
 
 
-        const token = jwt.sign({ id: newuser.id, name:newuser.name,lastname:newuser.lastname ,email:newuser.email, address: newuser.address }, secret);
+        const token = jwt.sign({ id: newuser.id, name:newuser.name,lastname:newuser.lastname ,image:newuser.image,email:newuser.email, }, secret);
         
 
         res.status(201).send({ token, message: 'Signup successful' });
@@ -60,17 +74,17 @@ const getOneUser= async (req, res) => {
         res.status(500).send({ message: 'Server error', error: err.message });
     }
 }
-
+    
 
 
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
-        // Check in both users and drivers tables
-        const user = await User.findOne({ where: { email } }) || await Driver.findOne({ where: { email } });
+       
+        const user = await User.findOne({ where: { email } }) 
 
         if (!user) {
-            return res.status(404).send({ message: 'Email not found in users or drivers' });
+            return res.status(404).send({ message: 'Email not found in users ' });
         }
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -79,14 +93,21 @@ const loginUser = async (req, res) => {
             return res.status(401).send({ message: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({id: user.id, name:user.name, lastname:user.lastname, email:user.email, address: user.address }, secret);
+        
 
+
+        const token = jwt.sign({id: user.id, name:user.name, lastname:user.lastname , image: user.image ,email:user.email}, secret);
+         
         res.send({ token });
     } catch (err) {
         console.error(err);
         res.status(500).send({ message: 'Server error', error: err.message });
     }
 }
+
+
+
+
 
 const deleteuser = async (req, res) => {
     try {
@@ -118,7 +139,7 @@ const updateUser = async (req, res) => {
 
         res.send({ message: 'User updated successfully' });
     } catch (err) {
-        console.error(err);
+        console.error("err",err);
         res.status(500).send({ message: 'Server error', error: err.message });
     }
 };

@@ -1,17 +1,21 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import ButtonNext from './ButtonNext';
+// import { useNavigation } from "@react-navigation/native";
 
 const { width } = Dimensions.get('window');
 
- 
+// const navigation = useNavigation();
+// const handleClickToAbout2 = () => {
+//   navigation.navigate("about2");
+// };
 
-const About2 = () => {
+const About2 = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* Top navigation */}
-      <View style={styles.skipContainer}>
-        <TouchableOpacity>
+      <View style={styles.skipContainer}        >
+        <TouchableOpacity    onPress={() => navigation.navigate('Commencer')}    >
           <Text style={styles.skipText}> Skip </Text>
         </TouchableOpacity>
       </View>
@@ -20,19 +24,31 @@ const About2 = () => {
       <View style={styles.imageContainer}>
         
         <Image
-          source={{ uri: 'https://cdn.discordapp.com/attachments/1272859880247787535/1274042575996719165/house-moving-service-8298852-6613992.webp?ex=66c961dc&is=66c8105c&hm=7a3a1e25a5f4e1099a56fd7692fe69c658139bde1b109c8d7cde12e05dcc65aa&' }} 
+        source={require('../assets/about2.png')}
+
           style={styles.image}
           resizeMode="contain"
         />
       </View>
-      <Text style={styles.title}>services de déménagement porte à porte</Text>
+      <Text style={styles.title}>Services de déménagement porte à porte</Text>
       <Text style={styles.subtitle}>
-      expédiez facilement et en toute sécurité de porte à porte avec une équipe sympathique où que vous soyez.
+      Déménagez facilement et en toute sécurité de porte à porte, avec une équipe dédiée pour vous accompagner à chaque étape.
       </Text>
 
-
+      
      
-      <ButtonNext style={styles.button}/>
+     <View style={styles.buttonWrapper}>
+  <TouchableOpacity style={[styles.buttonBack]}   onPress={() => navigation.navigate('About1')}     >
+    <Text style={styles.buttonText}>Précédente</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={[styles.buttonNext]}    onPress={() => navigation.navigate('About3')}  >
+    <Text style={styles.buttonText}>Suivante</Text>
+  </TouchableOpacity>
+</View>
+
+
+      {/* <ButtonNext style={styles.button}/> */}
       
       {/* Pagination Indicators */}
       <TouchableOpacity style={styles.paginationContainer}>
@@ -68,7 +84,8 @@ const styles = StyleSheet.create({
    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-
+    
+  
   },
   image: {
     width: width * 1.0,
@@ -97,6 +114,61 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 25,
   },
+  // buttonNext: {
+    
+  //   backgroundColor: '#007bff',
+  //   paddingVertical: 10,
+  //   paddingHorizontal: 20,
+  //   borderRadius: 25,
+    
+  // },
+  // buttonBack:{
+    
+  //   backgroundColor: '#007bff',
+  //   paddingVertical: 10,
+  //   paddingHorizontal: 20,
+  //   borderRadius: 25,
+  //   borderWidth: 1,
+  //   borderColor: '#ccc',
+  
+  // },
+  // buttonText: {
+  //   color: '#fff',
+  //   fontSize: 18,
+  //   fontWeight: 'bold',
+  // },
+  // buttonContainer: {
+  //   flexDirection: 'row', 
+  //   justifyContent: 'space-between', 
+  //   alignItems: 'center', 
+  // },
+  buttonWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', // Ensures equal space between the buttons
+    alignItems: 'center',
+    paddingHorizontal: 10, // Add padding between the buttons
+    marginTop: 20, // Add margin to the top of the button group
+  },
+  buttonNext: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+  },
+  buttonBack: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
   dot: {
     width: 10,
     height: 10,
