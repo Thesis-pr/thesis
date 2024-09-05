@@ -180,10 +180,6 @@ const Datetime = ({ route }) => {
       obj.date = mergedDate.toISOString();
     }
 
-
- 
-
-
     route.params = obj;
     delete data.savedDate;
     delete data.savedHours;
@@ -254,7 +250,7 @@ const Datetime = ({ route }) => {
             />
             <ButtonNext
               style={styles.button}
-              targetScreen={"Duration"}
+              targetScreen={"ExpoMaps"}
               params={route.params}
               buttonColor="#0078FA"
               buttonText="Suivant"
